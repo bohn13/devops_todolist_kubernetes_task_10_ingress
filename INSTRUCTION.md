@@ -57,7 +57,7 @@ Open your web browser and navigate to:
 
 ### Verifying Path Rules and 404 Status
 
-To ensure the regex rule `/(/|$)(.*)` is capturing paths correctly and no resources are missing:
+To ensure the regex rule `/(.*)` is capturing paths correctly and no resources are missing:
 
 1. Open **Developer Tools** (F12) in your browser.
 2. Go to the **Network** tab.
@@ -71,9 +71,9 @@ To ensure the regex rule `/(/|$)(.*)` is capturing paths correctly and no resour
 The Ingress manifest is located at `./infrastructure/ingress/ingress.yml` and adheres to the following requirements:
 
 * **HTTP Rule**: Defined under `spec.rules`.
-* **Path-based Rule**: Uses a regex capture group `/(/|$)(.*)` to forward all traffic to the backend service.
+* **Path-based Rule**: Uses a regex capture group `/(.*)` to forward all traffic to the backend service.
 * **Backend**: Routes traffic to `todoapp-service` on port 80.
-* **Rewrite Annotation**: `nginx.ingress.kubernetes.io/rewrite-target: /$2` ensures the app receives the correct sub-paths.
+* **Rewrite Annotation**: `nginx.ingress.kubernetes.io/rewrite-target: /$1` ensures the app receives the correct sub-paths.
 
 ---
 
