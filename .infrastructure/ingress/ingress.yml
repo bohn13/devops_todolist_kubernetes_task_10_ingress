@@ -14,5 +14,5 @@ spec:
                 name: todoapp-service
                 port:
                   number: 80
-            pathType: Prefix
+            pathType: ImplementationSpecific
             path: /(/|$)(.*)
